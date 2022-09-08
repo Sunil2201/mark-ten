@@ -19,13 +19,14 @@
     font-size: 1.2rem;
     margin: 1rem 0rem;
 }
- section{
+section{
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-around;
     padding: 1rem 0rem;
  }
+
  label{
     width: 100%;
     font-size: 1.2rem;

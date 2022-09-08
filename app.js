@@ -9,12 +9,19 @@ const outputSection = document.querySelector(".outputSection");
 
 const availableNotes = [2000, 500, 100, 20, 10, 5, 1];
 
+hideGivenCashAndOutput();
+
+nextButton.addEventListener("click", function showSomething(){
+    showGivenAmountSection();
+})
+
 checkButton.addEventListener("click", function validateBillAndCashAmount(){
     message.style.display = "none";
     if(billAmount.value > 0){
         if(cashGiven.value >= billAmount.value){
             const amountToReturn = cashGiven.value - billAmount.value;
             calculateChange(amountToReturn)
+            outputSection.style.display = 'block'
         }else{
             showErrorMessage("The cash provided should atleast be equal to the bill amount");
         }
@@ -34,4 +41,22 @@ function calculateChange(amountToReturn){
 function showErrorMessage(errMessage){
     message.style.display = "block"
     message.innerText = errMessage
+}
+
+function hideGivenCashAndOutput(){
+    inputCashSection.style.display = 'none';
+    outputSection.style.display = 'none';
+}
+
+function showGivenAmountSection(){
+    message.style.display = 'none'
+    if(billAmount.value > 0){
+        inputCashSection.style.display = 'flex';
+        message.innerText = ''
+    }
+    else{
+        showErrorMessage('Invalid value');
+        inputCashSection.style.display = 'none';
+        outputSection.style.display = 'none';
+    }
 }
