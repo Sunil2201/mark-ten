@@ -18,10 +18,10 @@ nextButton.addEventListener("click", function showSomething(){
 checkButton.addEventListener("click", function validateBillAndCashAmount(){
     message.style.display = "none";
     if(billAmount.value > 0){
-        if(cashGiven.value >= billAmount.value){
-            const amountToReturn = cashGiven.value - billAmount.value;
+        if(Number(cashGiven.value) >= Number(billAmount.value)){
+            const amountToReturn = Number(cashGiven.value) - Number(billAmount.value);
             calculateChange(amountToReturn)
-            outputSection.style.display = 'block'
+            outputSection.style.display = 'flex'
         }else{
             showErrorMessage("The cash provided should atleast be equal to the bill amount");
         }
